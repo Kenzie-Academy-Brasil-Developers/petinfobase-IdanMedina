@@ -2,6 +2,7 @@ import {login} from "../../scripts/api.js"
 
 const emailInput = document.getElementById("email-login");
 const passwordInput = document.getElementById("password-login");
+const registerBtn = document.getElementById("assign");
 const accessBtn = document.getElementById("access");
 let token = localStorage.getItem("token")
 localStorage.removeItem("token")
@@ -15,16 +16,19 @@ e.preventDefault()
   
   const req = await login(submit);
   
-  console.log(req.message)
   if(req.message){
     passwordInput.insertAdjacentHTML('afterend', `<p class="alert">${req.message}<p>`)
     passwordInput.classList.remove("input")
     passwordInput.classList.add("input-alert")
 } else {
-  localStorage.setItem("token",`${JSON.parse(req.token)}`)
+  localStorage.setItem("token",`${req.token}`)
   window.location.assign("/pages/home.html")}
 })
 
+registerBtn.addEventListener("click", () => {
+  e.preventDefault()
+  window.location.assign("/pages/register/register.html")
+})
 
 passwordInput.addEventListener("keyup", (input) => {
 if(input.target.value !== "" && emailInput.value !== ""){
