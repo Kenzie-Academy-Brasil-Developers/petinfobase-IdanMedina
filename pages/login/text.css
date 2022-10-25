@@ -22,11 +22,14 @@ line-height: 150%;
 color: var(--gray300);
 margin-bottom: 24px;
 }
-form h2{
+.form h2{
     font-weight: 500;
 font-size: 20px;
 line-height: 150%;
 color: var(--gray100);
+}
+#login-title{
+    margin-bottom: 26px;
 }
 .paragraph {
     font-weight: 400;
@@ -45,4 +48,7 @@ color: var(--gray300);
 font-size: 14px;
 line-height: 150%;
 color: var(--alert100)
+}
+#go-back-to-login{
+    font-size: 14px;
 }

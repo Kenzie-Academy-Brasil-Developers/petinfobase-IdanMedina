@@ -32,6 +32,9 @@ body {
   gap:70px;
   padding-top:223px;
 }
+#register-body{
+  padding-top:187px
+}
 
 .container{
   max-width: 400px;

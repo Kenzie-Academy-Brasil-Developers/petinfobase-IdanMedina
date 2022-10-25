@@ -3,19 +3,18 @@ main {
     flex-direction: column;
     justify-content: flex-start;
 }
-form {
+.form {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     padding: 44px 24px 44px 24px;
     width: 368px;
-    max-height: 600px;
     background-color: var(--gray900);
     border: 1px solid var(--gray600);
 border-radius: 4px;
 }
-.img{
-    object-fit: fill;
+img{
+    object-fit: cover;
     border-radius: 12px;
 }
 .box-1 {
@@ -47,4 +46,7 @@ height: 209px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+#register-form{
+    margin-top: 27px;
 }

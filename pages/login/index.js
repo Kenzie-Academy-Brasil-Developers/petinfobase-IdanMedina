@@ -25,8 +25,9 @@ e.preventDefault()
   window.location.assign("/pages/home.html")}
 })
 
-registerBtn.addEventListener("click", () => {
+registerBtn.addEventListener("click", (e) => {
   e.preventDefault()
+  console.log(registerBtn)
   window.location.assign("/pages/register/register.html")
 })
 
