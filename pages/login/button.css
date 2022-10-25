@@ -31,7 +31,14 @@ input{
 padding: 0px 16px;
 width: 321px;
 height: 44px;
-border: 1px solid var(--gray600);
 border-radius: 4px;
 font-family: inherit;
+}
+.input{
+    border: 1px solid var(--gray600);
+}
+.input-alert{
+    border: 1px solid var(--brand100);
+    background-color: var(--brand100);
+    opacity: 0.333;
 }
