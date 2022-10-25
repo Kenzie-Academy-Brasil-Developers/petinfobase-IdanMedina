@@ -4,11 +4,18 @@ const emailInput = document.getElementById("email-login");
 const passwordInput = document.getElementById("password-login");
 const registerBtn = document.getElementById("assign");
 const accessBtn = document.getElementById("access");
-let token = localStorage.getItem("token")
+const imgBtn = document.createElement("img");
+imgBtn.src = "/assets/spinner.png";
+/* let token = localStorage.getItem("token") */
 localStorage.removeItem("token")
 
 accessBtn.addEventListener("click", async (e) =>{
 e.preventDefault()
+
+accessBtn.innerHTML = "";
+imgBtn.classList.add("img-btn");
+  accessBtn.appendChild(imgBtn);
+
   const submit = {
     email: `${emailInput.value}`,
     password: `${passwordInput.value}`
@@ -20,6 +27,8 @@ e.preventDefault()
     passwordInput.insertAdjacentHTML('afterend', `<p class="alert">${req.message}<p>`)
     passwordInput.classList.remove("input")
     passwordInput.classList.add("input-alert")
+    accessBtn.classList.remove("img-btn");
+    accessBtn.innerText = "Acessar";
 } else {
   localStorage.setItem("token",`${req.token}`)
   window.location.assign("/pages/home.html")}
