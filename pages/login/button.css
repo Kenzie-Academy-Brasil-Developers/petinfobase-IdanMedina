@@ -16,10 +16,14 @@ border-style: none;
 border: 1px solid var(--gray600);
 cursor: pointer;
 }
-form #acess{
-    border: none;
+.off-btn{
+    border-style: none;
+    opacity: 0.33;
     background-color: var(--brand100);
     color: var(--gray900)
+}
+.on-btn{
+    opacity: 1;
 }
 input{
     display: flex;
@@ -29,4 +33,5 @@ width: 321px;
 height: 44px;
 border: 1px solid var(--gray600);
 border-radius: 4px;
+font-family: inherit;
 }
