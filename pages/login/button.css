@@ -53,6 +53,19 @@ font-family: inherit;
 #go-back-to-login{
     margin: 0;
 }
+.modal-btn{
+    padding: 0 16px;
+    width: auto;
+    height: 38px;
+    font-family: inherit;
+    font-weight: 500;
+font-size: 16px;
+    border-style: none;
+    background-color: var(--brand100);
+    color: var(--gray900);
+    border-radius: 4px;
+    cursor:pointer;
+}
 .img-btn {
     animation: spinning 2s linear;
   }

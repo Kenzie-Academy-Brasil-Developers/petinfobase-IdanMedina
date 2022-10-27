@@ -2,19 +2,20 @@ import {login} from "../../scripts/api.js"
 
 const emailInput = document.getElementById("email-login");
 const passwordInput = document.getElementById("password-login");
-const registerBtn = document.getElementById("assign");
+const assignBtn = document.getElementById("assign");
 const accessBtn = document.getElementById("access");
 const imgBtn = document.createElement("img");
+const alert = document.getElementById("alert");
+
 imgBtn.src = "/assets/spinner.png";
 /* let token = localStorage.getItem("token") */
 localStorage.removeItem("token")
 
 accessBtn.addEventListener("click", async (e) =>{
 e.preventDefault()
-
 accessBtn.innerHTML = "";
 imgBtn.classList.add("img-btn");
-  accessBtn.appendChild(imgBtn);
+accessBtn.appendChild(imgBtn);
 
   const submit = {
     email: `${emailInput.value}`,
@@ -24,7 +25,8 @@ imgBtn.classList.add("img-btn");
   const req = await login(submit);
   
   if(req.message){
-    passwordInput.insertAdjacentHTML('afterend', `<p class="alert">${req.message}<p>`)
+    alert.innerHTML = "";
+    alert.innerText = `${req.message}`;
     passwordInput.classList.remove("input")
     passwordInput.classList.add("input-alert")
     accessBtn.classList.remove("img-btn");
@@ -34,9 +36,8 @@ imgBtn.classList.add("img-btn");
   window.location.assign("/pages/home.html")}
 })
 
-registerBtn.addEventListener("click", (e) => {
+assignBtn.addEventListener("click", (e) => {
   e.preventDefault()
-  console.log(registerBtn)
   window.location.assign("/pages/register/register.html")
 })
 

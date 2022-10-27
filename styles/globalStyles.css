@@ -20,7 +20,7 @@
   --gray900: hsl(200, 100%, 99%);
   --alert100: hsl(349, 57%, 50%);
   --alert200: hsl(349, 69%, 55%);
-  --sucess100: hsl(162, 88%, 26%);
+  --success100: hsl(162, 88%, 26%);
 }
 
 body {
@@ -35,7 +35,19 @@ body {
 #register-body{
   padding-top:187px
 }
-
+#home-body{
+  display: block;
+  padding-top: 0px;
+}
 .container{
   max-width: 400px;
+}
+.container-main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+#register-container{
+  position: relative;
 }
