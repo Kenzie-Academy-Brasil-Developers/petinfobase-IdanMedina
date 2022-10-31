@@ -46,7 +46,8 @@ export function newPost(){
     }
             await post(body, token);
             noModal.classList.toggle("no-modal");
-            reqPost.forEach((elem) => {
+            const req = await searchPost(token);
+            req.forEach((elem) => {
                 renderPosts(elem)
             });
         }
@@ -59,7 +60,7 @@ export function newPost(){
     noModal.appendChild(showModal)
 }
 
-export async function editPost(){
+export function editPost(id){
 
     const titlePost = document.getElementById("title-post");
     const contentPost = document.getElementById("content-post");  
@@ -90,11 +91,6 @@ export async function editPost(){
     cancel.innerText = "Cancelar";
     save.innerText = "Salvar Alterações";
 
-    const find = reqPost.find(async (e) => {
-        e.title == titlePost.innerText
-        })
-    const id = JSON.stringify(find.id)
-
     exit.addEventListener("click", () => {
         noModal.classList.toggle("no-modal")
     })
@@ -106,12 +102,13 @@ export async function editPost(){
         const body = { title: `${inputTitle.value}`,
             content: `${inputContent.value}`
     }
-    
-            await updatePost(id, body, token);
+    console.log(body)
+            await updatePost(id, token, body);
             noModal.classList.toggle("no-modal");
-            reqPost.forEach((elem) => {
-                renderPosts(elem)
-            });
+            const req = await searchPost(token);
+           req.forEach((elem) =>{
+            renderPosts(elem)
+           })
         }
 )
 
@@ -122,7 +119,7 @@ export async function editPost(){
     noModal.appendChild(showModal)
 }
 
-export async function deletePost(){
+export async function deletePost(id){
 
     const titlePost = document.getElementById("title-post");
 
@@ -146,11 +143,6 @@ export async function deletePost(){
     content.innerText = "Essa ação não poderá ser desfeita, então pedimos que tenha cautela antes de concluir";
     cancel.innerText = "Cancelar";
     remove.innerText = "Sim, excluir esse post";
-
-    const find = reqPost.find(async (e) => {
-        e.title == titlePost.innerText
-    })
-    const id = JSON.stringify(find.id);
     
     exit.addEventListener("click", () => {
         noModal.classList.toggle("no-modal")
@@ -162,9 +154,11 @@ export async function deletePost(){
         e.preventDefault();
             await removePost(id, token);
             noModal.classList.toggle("no-modal");
-            reqPost.forEach((elem) => {
-                renderPosts(elem)
-            });
+            const req = await searchPost(token);
+           req.forEach((elem) =>{
+            renderPosts(elem)
+           })
+            
         }
 )
 

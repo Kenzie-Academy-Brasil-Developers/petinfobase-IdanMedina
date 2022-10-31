@@ -103,7 +103,7 @@ export async function searchPost(token) {
 }
 
 export async function updatePost(id, token, body) {
-  const data = await fetch(`http:localhost:3333/posts/${id}`, {
+  const data = await fetch(`http://localhost:3333/posts/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

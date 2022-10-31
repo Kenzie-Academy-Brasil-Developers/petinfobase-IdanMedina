@@ -18,7 +18,7 @@ export async function renderPosts(element) {
     const boxName = document.createElement("div");
     const avatar = document.createElement("img");
     const name = document.createElement("h4");
-    const hr = document.createElement("hr");
+    const hr = document.createElement("p");
     const date = document.createElement("p");
     const boxBtn = document.createElement("div");
     const editBtn = document.createElement("button");
@@ -26,6 +26,15 @@ export async function renderPosts(element) {
     const title = document.createElement("h2");
     const article = document.createElement("article");
     const access = document.createElement("a");
+
+    li.classList.add("post-card");
+    boxInfo.classList.add("infobox;");
+    boxName.classList.add("namebox");
+    boxBtn.classList.add("buttonbox");
+    editBtn.classList.add("edit-btn");
+    removeBtn.classList.add("remove-btn");
+    avatar.classList.add("avatar");
+    hr.classList.add("hr")
 
     title.id = "title-post";
     article.id = "content-post";
@@ -41,13 +50,13 @@ export async function renderPosts(element) {
     editBtn.addEventListener("click",async (e) => {
         e.preventDefault();
         noModal.classList.toggle("no-modal");
-        await editPost()
+        await editPost(element.id)
     })
 
     removeBtn.addEventListener("click", async(e) => {
         e.preventDefault();
         noModal.classList.toggle("no-modal");
-        await deletePost()
+        await deletePost(element.id)
     })
     
     boxName.append(avatar, name, hr, date);

@@ -66,6 +66,33 @@ font-size: 16px;
     border-radius: 4px;
     cursor:pointer;
 }
+.edit-btn{
+height: 32px;
+width: auto;
+padding: 0 8px;
+border: 1px solid var(--gray700);
+border-radius: 4px;
+color: var(--gray100);
+background-color: transparent;
+font-weight: 500;
+font-size: 14px;
+line-height: 150%;
+cursor: pointer;
+}
+.remove-btn{
+    height: 32px;
+    width: auto;
+    padding: 0 8px;
+    color: var(--gray400);
+    border: 1px solid var(--gray700);
+    background-color: var(--gray700);
+border-radius: 4px;
+font-weight: 500;
+font-size: 14px;
+line-height: 150%;
+cursor: pointer;
+}
+
 .img-btn {
     animation: spinning 2s linear;
   }
