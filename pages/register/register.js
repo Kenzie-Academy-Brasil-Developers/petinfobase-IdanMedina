@@ -28,10 +28,9 @@ registerBtn.addEventListener("click", async (e) =>{
         password: `${password.value}`,
         avatar: `${avatar.value}`
       }
-console.log(submit)
 
       const req = await register(submit);
-console.log(req)
+
       if(req.message){
         alert.innerHTML = "";
         alert.innerText = `${req.message}`;

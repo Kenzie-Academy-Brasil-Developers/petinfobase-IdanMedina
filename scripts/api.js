@@ -31,7 +31,7 @@ export async function search(token) {
     headers: {
       "Content-Type": "application/json",
       "Authorization": `Bearer ${token}`,
-    },
+    }
   })
     .then((res) => res.json())
     .then((res) => res)
@@ -45,9 +45,9 @@ export async function update(user, token) {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      "Authorization": `Bearer ${token}`
     },
-    body: JSON.stringify(user),
+    body: JSON.stringify(user)
   })
     .then((res) => res.json())
     .then((res) => res)
@@ -61,8 +61,8 @@ export async function remove(token) {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
+      "Authorization": `Bearer ${token}`
+    }
   })
     .then((res) => res.json())
     .then((res) => res)
@@ -76,9 +76,9 @@ export async function post(body, token) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      "Authorization": `Bearer ${token}`
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify(body)
   })
     .then((res) => res.json())
     .then((res) => res)
@@ -88,11 +88,11 @@ export async function post(body, token) {
 }
 
 export async function searchPost(token) {
-  const data = await fetch(`http://localhost:3333/posts/create`, {
+  const data = await fetch(`http://localhost:3333/posts`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      "Authorization": `Bearer ${token}`,
     },
   })
     .then((res) => res.json())
@@ -107,9 +107,9 @@ export async function updatePost(id, token, body) {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      "Authorization": `Bearer ${token}`,
     },
-    body: JSON.stringify(body),
+    body: JSON.stringify(body)
   })
     .then((res) => res.json())
     .then((res) => res)

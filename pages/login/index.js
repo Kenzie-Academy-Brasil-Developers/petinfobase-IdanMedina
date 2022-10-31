@@ -32,7 +32,7 @@ accessBtn.appendChild(imgBtn);
     accessBtn.classList.remove("img-btn");
     accessBtn.innerText = "Acessar";
 } else {
-  localStorage.setItem("token",`${req.token}`)
+  localStorage.setItem("token",`${req.token}`);
   window.location.assign("/pages/home.html")}
 })
 

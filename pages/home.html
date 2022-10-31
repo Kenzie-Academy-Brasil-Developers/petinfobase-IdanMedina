@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="./login/index.css" />
     <link rel="stylesheet" href="./login/text.css" />
     <link rel="stylesheet" href="./login/button.css" />
+    <link rel="stylesheet" href="./modal.css" />
     <link rel="stylesheet" href="../styles/globalStyles.css" />
+    <script defer src="./home.js" type="module"></script>
     <title>Petinfo</title>
 </head>
 <body id="home-body">
@@ -15,14 +17,15 @@
         <nav>
             <h1 id="petinfo">Petinfo</h1>
             <div class="div-nav">
-            <button class="modal-btn">Criar publicação</button>
+            <button class="post-btn" id ="post-btn">Criar publicação</button>
             <img id="img-login" src="">
         </div>
         </nav>
         <div class="feed"><div>Feed</div></div>
     </header>
     <main class="container-main">
-        <ul class="feed-list"></ul>
+        <ul class="feed-list" id="feed-list"></ul>
     </main>
+    <div class = "no-modal" id="no-modal"></div>
 </body>
 </html>
