@@ -1,5 +1,5 @@
 import { search, searchPost } from "../scripts/api.js";
-import { newPost, editPost } from "./post.js";
+import { newPost, editPost, deletePost } from "./post.js";
 
 const ul = document.getElementById("feed-list");
 const imgHome = document.getElementById("img-login");
@@ -38,10 +38,16 @@ export async function renderPosts(element) {
     article.innerText = element.content;
     access.innerText = "Acessar publicação";
 
-    editBtn.addEventListener("click",(e) => {
+    editBtn.addEventListener("click",async (e) => {
         e.preventDefault();
         noModal.classList.toggle("no-modal");
-        editPost()
+        await editPost()
+    })
+
+    removeBtn.addEventListener("click", async(e) => {
+        e.preventDefault();
+        noModal.classList.toggle("no-modal");
+        await deletePost()
     })
     
     boxName.append(avatar, name, hr, date);

@@ -123,7 +123,7 @@ export async function removePost(id, token) {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      "Authorization": `Bearer ${token}`,
     },
   })
     .then((res) => res.json())

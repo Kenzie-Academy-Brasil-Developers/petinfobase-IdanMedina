@@ -1,4 +1,4 @@
-import { post, searchPost, updatePost } from "../scripts/api.js";
+import { post, searchPost, updatePost, removePost } from "../scripts/api.js";
 import { renderPosts } from "./home.js";
 
 const noModal = document.getElementById("no-modal");
@@ -59,7 +59,7 @@ export function newPost(){
     noModal.appendChild(showModal)
 }
 
-export function editPost(){
+export async function editPost(){
 
     const titlePost = document.getElementById("title-post");
     const contentPost = document.getElementById("content-post");  
@@ -92,7 +92,8 @@ export function editPost(){
 
     const find = reqPost.find(async (e) => {
         e.title == titlePost.innerText
-    })
+        })
+    const id = JSON.stringify(find.id)
 
     exit.addEventListener("click", () => {
         noModal.classList.toggle("no-modal")
@@ -105,8 +106,8 @@ export function editPost(){
         const body = { title: `${inputTitle.value}`,
             content: `${inputContent.value}`
     }
-    console.log(body)
-            await updatePost(find.id, body, token);
+    
+            await updatePost(id, body, token);
             noModal.classList.toggle("no-modal");
             reqPost.forEach((elem) => {
                 renderPosts(elem)
@@ -117,6 +118,59 @@ export function editPost(){
     editExit.append(edit, exit);
     buttons.append(cancel, save);
     modal.append(editExit,title,inputTitle,content,inputContent,buttons);
+    showModal.appendChild(modal);
+    noModal.appendChild(showModal)
+}
+
+export async function deletePost(){
+
+    const titlePost = document.getElementById("title-post");
+
+    const showModal = document.createElement("div");
+    const modal = document.createElement("div");
+    const delExit = document.createElement("div");
+    const del = document.createElement("h3");
+    const exit = document.createElement("p");
+    const warning = document.createElement("h2");
+    const content = document.createElement("p"); 
+    const buttons = document.createElement("div");
+    const cancel = document.createElement("button");
+    const remove = document.createElement("button");
+
+    modal.classList.add("modal");
+    showModal.classList.add("show-modal");
+
+    del.innerText = "Confirmação de exclusão";
+    exit.innerText = "x";
+    warning.innerText = "Tem certeza que deseja excluir esse post?";
+    content.innerText = "Essa ação não poderá ser desfeita, então pedimos que tenha cautela antes de concluir";
+    cancel.innerText = "Cancelar";
+    remove.innerText = "Sim, excluir esse post";
+
+    const find = reqPost.find(async (e) => {
+        e.title == titlePost.innerText
+    })
+    const id = JSON.stringify(find.id);
+    
+    exit.addEventListener("click", () => {
+        noModal.classList.toggle("no-modal")
+    })
+    cancel.addEventListener("click", () => {
+        noModal.classList.toggle("no-modal")
+    })
+    remove.addEventListener("click", async (e) => {
+        e.preventDefault();
+            await removePost(id, token);
+            noModal.classList.toggle("no-modal");
+            reqPost.forEach((elem) => {
+                renderPosts(elem)
+            });
+        }
+)
+
+    delExit.append(del, exit);
+    buttons.append(cancel, remove);
+    modal.append(delExit,warning,content,buttons);
     showModal.appendChild(modal);
     noModal.appendChild(showModal)
 }
